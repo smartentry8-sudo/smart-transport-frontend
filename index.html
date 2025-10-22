@@ -266,7 +266,7 @@
 
 
         try{
-          const res=await fetch("https://smart-transport-backend-o72q.vercel.app",
+          const res=await fetch("https://smart-transport-backend-o72q.vercel.app/api/users/register",
           {method:"POST",headers:{"Content-Type":"application/json"},
           body:JSON.stringify({name,userId,bus,password,role})});
 
@@ -286,7 +286,7 @@
         if(!userId||!password) return alert("Please fill all fields");
 
         try{
-          const res=await fetch("https://smart-transport-backend-o72q.vercel.app",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({userId,password})});
+          const res=await fetch("https://smart-transport-backend-o72q.vercel.app/api/users/login",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({userId,password})});
           const data=await res.json();
           if(res.ok){
             alert("Login successful!"); localStorage.setItem("busUser",JSON.stringify(data));
