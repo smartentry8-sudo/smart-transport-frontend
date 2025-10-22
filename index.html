@@ -266,7 +266,10 @@
 
 
         try{
-          const res=await fetch("https://smart-transport-backend-o72q.vercel.app/",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({name,userId,bus,password,role})});
+          const res=await fetch("https://smart-transport-backend-o72q.vercel.app",
+          {method:"POST",headers:{"Content-Type":"application/json"},
+          body:JSON.stringify({name,userId,bus,password,role})});
+
           const data=await res.json();
           if(res.ok) alert("Registered successfully!"); else alert("Registration failed: "+(data.message||"Unknown error"));
         }catch(err){ console.error(err); alert("Server error! Check backend connection."); }
@@ -283,7 +286,7 @@
         if(!userId||!password) return alert("Please fill all fields");
 
         try{
-          const res=await fetch("https://smart-transport-backend-o72q.vercel.app/",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({userId,password})});
+          const res=await fetch("https://smart-transport-backend-o72q.vercel.app",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({userId,password})});
           const data=await res.json();
           if(res.ok){
             alert("Login successful!"); localStorage.setItem("busUser",JSON.stringify(data));
